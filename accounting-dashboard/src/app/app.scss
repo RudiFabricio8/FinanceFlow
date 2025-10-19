@@ -1,0 +1,12 @@
+// src/app/app.scss
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #FFFBF4;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+}

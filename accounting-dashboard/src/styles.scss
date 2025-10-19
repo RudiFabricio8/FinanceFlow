@@ -1,1 +1,60 @@
-/* You can add global styles to this file, and also import other style files */
+// src/styles.scss
+
+// Importar fuentes
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+// Variables de color
+:root {
+  --color-primary: #565449;
+  --color-background: #FFFBF4;
+  --color-content: #454641;
+  --color-content-darker: #194007;
+  --color-accent: #565449;
+  --color-success: #194007;
+  --color-error: #dc2626;
+}
+
+// Reset y estilos base
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: var(--color-content-darker);
+  background-color: var(--color-background);
+  line-height: 1.5;
+}
+
+// Estilos de Material Symbols
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+// Utilidades
+.text-right {
+  text-align: right;
+}
+
+.positive {
+  color: var(--color-success);
+}
+
+.negative {
+  color: var(--color-error);
+}
