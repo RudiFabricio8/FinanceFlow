@@ -1,22 +1,9 @@
-// src/app/pages/dashboard/dashboard.ts
+// src/app/features/dashboard/dashboard.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ExportService } from '../../shared/services/export';
-
-interface StatCard {
-  title: string;
-  value: string;
-  change: string;
-  isPositive: boolean;
-}
-
-interface Transaction {
-  date: string;
-  description: string;
-  category: string;
-  amount: number;
-  isPositive: boolean;
-}
+import { ExportService } from '../../core/services/export';
+import { StatCard } from '../../core/models/stat-card.model';
+import { Transaction } from '../../core/models/transaction.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -28,7 +15,7 @@ interface Transaction {
 export class Dashboard implements OnInit {
   statCards: StatCard[] = [
     {
-      title: 'Ingresos totales',
+      title: 'Total Ingresos',
       value: '$250,000',
       change: '+15%',
       isPositive: true
@@ -63,7 +50,7 @@ export class Dashboard implements OnInit {
     },
     {
       date: 'Jul 25, 2024',
-      description: 'Herramientas de oficina',
+      description: 'Material de oficina',
       category: 'Gastos',
       amount: 150.25,
       isPositive: false
@@ -71,13 +58,13 @@ export class Dashboard implements OnInit {
     {
       date: 'Jul 24, 2024',
       description: 'Pago - Julio',
-      category: 'Nómina de sueldos',
+      category: 'Nóminas de sueldos',
       amount: 15000.00,
       isPositive: false
     },
     {
       date: 'Jul 23, 2024',
-      description: 'Suscripción de Software',
+      description: 'Suscripción de software',
       category: 'Gastos',
       amount: 99.00,
       isPositive: false
@@ -93,7 +80,6 @@ export class Dashboard implements OnInit {
   exportData(): void {
     console.log('Exportando datos...');
     
-    // Mostrar opciones de exportación
     const choice = confirm('¿Desea exportar a Excel? (Aceptar = Excel, Cancelar = PDF)');
     
     if (choice) {

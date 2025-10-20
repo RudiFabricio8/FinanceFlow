@@ -9,31 +9,31 @@ export const routes: Routes = [
   },
   {
     path: 'dashboard',
-    loadComponent: () => import('./pages/dashboard/dashboard').then(m => m.Dashboard)
+    loadComponent: () => import('./features/dashboard/dashboard').then(m => m.Dashboard)
   },
   {
     path: 'payroll',
-    loadComponent: () => import('./pages/payroll/payroll').then(m => m.Payroll)
+    loadComponent: () => import('./features/payroll/payroll').then(m => m.Payroll)
   },
   {
     path: 'receipts',
-    loadComponent: () => import('./pages/receipts/receipts').then(m => m.Receipts)
+    loadComponent: () => import('./features/receipts/receipts').then(m => m.Receipts)
   },
   {
     path: 'analytics',
-    loadComponent: () => import('./pages/analytics/analytics').then(m => m.Analytics)
+    loadComponent: () => import('./features/analytics/analytics').then(m => m.Analytics)
   },
   {
     path: 'notifications',
-    loadComponent: () => import('./pages/notifications/notifications').then(m => m.Notifications)
+    loadComponent: () => import('./features/notifications/notifications').then(m => m.Notifications)
   },
   {
     path: 'admin',
-    loadComponent: () => import('./pages/admin/admin').then(m => m.Admin)
+    loadComponent: () => import('./features/admin/admin').then(m => m.Admin)
   },
   {
     path: 'help',
-    loadComponent: () => import('./pages/help/help').then(m => m.Help)
+    loadComponent: () => import('./features/help/help').then(m => m.Help)
   },
   {
     path: '**',

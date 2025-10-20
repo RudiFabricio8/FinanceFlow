@@ -2,13 +2,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
-interface MenuItem {
-  icon: string;
-  label: string;
-  route: string;
-  active?: boolean;
-}
+import { MenuItem } from '../../../core/models/menu-item.model';
 
 @Component({
   selector: 'app-sidebar',
