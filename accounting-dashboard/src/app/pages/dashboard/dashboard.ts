@@ -27,25 +27,25 @@ interface Transaction {
 export class Dashboard implements OnInit {
   statCards: StatCard[] = [
     {
-      title: 'Total Revenue',
+      title: 'Ingresos totales',
       value: '$250,000',
       change: '+15%',
       isPositive: true
     },
     {
-      title: 'Payroll Expenses',
+      title: 'Gastos de nómina',
       value: '$75,000',
       change: '-5%',
       isPositive: false
     },
     {
-      title: 'Outstanding Invoices',
+      title: 'Facturas pendientes',
       value: '$12,500',
       change: '+10%',
       isPositive: true
     },
     {
-      title: 'Employee Satisfaction',
+      title: 'Satisfactión',
       value: '92%',
       change: '+2%',
       isPositive: true
@@ -54,30 +54,30 @@ export class Dashboard implements OnInit {
 
   transactions: Transaction[] = [
     {
-      date: 'Jul 26, 2024',
-      description: 'Invoice #12345 Payment',
-      category: 'Revenue',
+      date: 'Jul 26, 2025',
+      description: 'Factura #12345 Pago',
+      category: 'Ganancia',
       amount: 5000.00,
       isPositive: true
     },
     {
       date: 'Jul 25, 2024',
-      description: 'Office Supplies',
-      category: 'Expenses',
+      description: 'Material de oficina',
+      category: 'Gastos',
       amount: 150.25,
       isPositive: false
     },
     {
       date: 'Jul 24, 2024',
-      description: 'Payroll - July',
-      category: 'Payroll',
+      description: 'Nómina-Julio',
+      category: 'Sueldos',
       amount: 15000.00,
       isPositive: false
     },
     {
       date: 'Jul 23, 2024',
-      description: 'Software Subscription',
-      category: 'Expenses',
+      description: 'Suscripción de software',
+      category: 'Gastos',
       amount: 99.00,
       isPositive: false
     }

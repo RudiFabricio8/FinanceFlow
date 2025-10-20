@@ -9,4 +9,12 @@
 .main-content {
   flex: 1;
   padding: 2rem;
+  overflow-y: auto;
+  height: 100vh;
+  margin-left: 5rem;
+  transition: margin-left 0.3s ease-in-out;
+
+  &.expanded {
+    margin-left: 18rem;
+  }
 }

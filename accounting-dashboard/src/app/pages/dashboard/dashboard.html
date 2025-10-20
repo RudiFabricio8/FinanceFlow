@@ -1,7 +1,7 @@
 <!-- src/app/pages/dashboard/dashboard.html -->
 <div class="dashboard-container">
   <header class="dashboard-header">
-    <h1 class="dashboard-title">Dashboard</h1>
+    <h1 class="dashboard-title">Panel Principal</h1>
   </header>
 
   <!-- Tarjetas de estadísticas -->
@@ -18,16 +18,16 @@
   <!-- Gráficas -->
   <div class="charts-grid">
     <div class="chart-card">
-      <h3 class="chart-title">Cash Flow</h3>
+      <h3 class="chart-title">flujo de fondos</h3>
       <div class="chart-placeholder">
-        <p class="placeholder-text">[Cash Flow Graph Placeholder]</p>
+        <p class="placeholder-text">[Marcador de posición del gráfico de flujo de efectivo]</p>
       </div>
     </div>
 
     <div class="chart-card">
-      <h3 class="chart-title">Expense Breakdown</h3>
+      <h3 class="chart-title">Desglose de gastos</h3>
       <div class="chart-placeholder">
-        <p class="placeholder-text">[Expense Breakdown Graph Placeholder]</p>
+        <p class="placeholder-text">[Marcador de posición del gráfico de desglose de gastos]</p>
       </div>
     </div>
   </div>
@@ -35,9 +35,9 @@
   <!-- Tabla de transacciones -->
   <div class="transactions-card">
     <div class="transactions-header">
-      <h3 class="transactions-title">Recent Transactions</h3>
+      <h3 class="transactions-title">Transacciones recientes</h3>
       <button class="export-button" (click)="exportData()">
-        Export (Excel/PDF)
+        Exportar (Excel/PDF)
       </button>
     </div>
 
@@ -45,10 +45,10 @@
       <table class="transactions-table">
         <thead>
           <tr>
-            <th>Date</th>
-            <th>Description</th>
-            <th>Category</th>
-            <th class="text-right">Amount</th>
+            <th>Fecha</th>
+            <th>Descripción</th>
+            <th>Categoria</th>
+            <th class="text-right">Monto</th>
           </tr>
         </thead>
         <tbody>

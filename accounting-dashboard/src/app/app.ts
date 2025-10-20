@@ -12,4 +12,9 @@ import { Sidebar } from './shared/components/sidebar/sidebar';
 })
 export class AppComponent {
   title = 'accounting-dashboard';
+  isSidebarExpanded = false;
+
+  onSidebarHover(expanded: boolean): void {
+    this.isSidebarExpanded = expanded;
+  }
 }
