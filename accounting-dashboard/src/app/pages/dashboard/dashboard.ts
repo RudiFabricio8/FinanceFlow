@@ -1,6 +1,7 @@
 // src/app/pages/dashboard/dashboard.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ExportService } from '../../shared/services/export';
 
 interface StatCard {
   title: string;
@@ -45,7 +46,7 @@ export class Dashboard implements OnInit {
       isPositive: true
     },
     {
-      title: 'Satisfactión',
+      title: 'Satisfacción',
       value: '92%',
       change: '+2%',
       isPositive: true
@@ -54,7 +55,7 @@ export class Dashboard implements OnInit {
 
   transactions: Transaction[] = [
     {
-      date: 'Jul 26, 2025',
+      date: 'Jul 26, 2024',
       description: 'Factura #12345 Pago',
       category: 'Ganancia',
       amount: 5000.00,
@@ -62,28 +63,28 @@ export class Dashboard implements OnInit {
     },
     {
       date: 'Jul 25, 2024',
-      description: 'Material de oficina',
+      description: 'Herramientas de oficina',
       category: 'Gastos',
       amount: 150.25,
       isPositive: false
     },
     {
       date: 'Jul 24, 2024',
-      description: 'Nómina-Julio',
-      category: 'Sueldos',
+      description: 'Pago - Julio',
+      category: 'Nómina de sueldos',
       amount: 15000.00,
       isPositive: false
     },
     {
       date: 'Jul 23, 2024',
-      description: 'Suscripción de software',
+      description: 'Suscripción de Software',
       category: 'Gastos',
       amount: 99.00,
       isPositive: false
     }
   ];
 
-  constructor() {}
+  constructor(private exportService: ExportService) {}
 
   ngOnInit(): void {
     // Inicialización del componente
@@ -91,7 +92,15 @@ export class Dashboard implements OnInit {
 
   exportData(): void {
     console.log('Exportando datos...');
-    // Lógica para exportar datos
+    
+    // Mostrar opciones de exportación
+    const choice = confirm('¿Desea exportar a Excel? (Aceptar = Excel, Cancelar = PDF)');
+    
+    if (choice) {
+      this.exportService.exportTransactionsToExcel(this.transactions);
+    } else {
+      this.exportService.exportTransactionsToPDF(this.transactions);
+    }
   }
 
   formatAmount(amount: number, isPositive: boolean): string {

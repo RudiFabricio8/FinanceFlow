@@ -11,7 +11,7 @@ import { Sidebar } from './shared/components/sidebar/sidebar';
   styleUrl: './app.scss'
 })
 export class AppComponent {
-  title = 'accounting-dashboard';
+  title = 'Panel principal';
   isSidebarExpanded = false;
 
   onSidebarHover(expanded: boolean): void {
