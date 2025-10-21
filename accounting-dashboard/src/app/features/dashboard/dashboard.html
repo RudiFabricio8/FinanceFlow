@@ -1,67 +1,23 @@
-<!-- src/app/pages/dashboard/dashboard.html -->
+<!-- src/app/features/dashboard/dashboard.html -->
 <div class="dashboard-container">
   <header class="dashboard-header">
-    <h1 class="dashboard-title">Panel Principal</h1>
+    <h1 class="dashboard-title">Dashboard</h1>
   </header>
 
   <!-- Tarjetas de estadísticas -->
   <div class="stats-grid">
-    <div *ngFor="let card of statCards" class="stat-card">
-      <h3 class="stat-title">{{ card.title }}</h3>
-      <p class="stat-value">{{ card.value }}</p>
-      <p class="stat-change" [ngClass]="card.isPositive ? 'positive' : 'negative'">
-        {{ card.change }}
-      </p>
-    </div>
+    <app-stat-card *ngFor="let card of statCards" [card]="card"></app-stat-card>
   </div>
 
   <!-- Gráficas -->
   <div class="charts-grid">
-    <div class="chart-card">
-      <h3 class="chart-title">Flujo de fondos</h3>
-      <div class="chart-placeholder">
-        <p class="placeholder-text">[Marcador de posición del gráfico de flujo de efectivo]</p>
-      </div>
-    </div>
-
-    <div class="chart-card">
-      <h3 class="chart-title">Desglose de gastos</h3>
-      <div class="chart-placeholder">
-        <p class="placeholder-text">[Marcador de posición del gráfico de desglose de gastos]</p>
-      </div>
-    </div>
+    <app-chart-placeholder title="Cash Flow"></app-chart-placeholder>
+    <app-chart-placeholder title="Expense Breakdown"></app-chart-placeholder>
   </div>
 
   <!-- Tabla de transacciones -->
-  <div class="transactions-card">
-    <div class="transactions-header">
-      <h3 class="transactions-title">Transacciones recientes</h3>
-      <button class="export-button" (click)="exportData()">
-        Exportar (Excel/PDF)
-      </button>
-    </div>
-
-    <div class="transactions-table-container">
-      <table class="transactions-table">
-        <thead>
-          <tr>
-            <th>Fecha</th>
-            <th>Descripción</th>
-            <th>Categoria</th>
-            <th class="text-right">Monto</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let transaction of transactions">
-            <td>{{ transaction.date }}</td>
-            <td>{{ transaction.description }}</td>
-            <td>{{ transaction.category }}</td>
-            <td class="text-right" [ngClass]="transaction.isPositive ? 'positive' : 'negative'">
-              {{ formatAmount(transaction.amount, transaction.isPositive) }}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+  <app-transactions-table 
+    [transactions]="transactions" 
+    (exportClick)="handleExport()">
+  </app-transactions-table>
 </div>

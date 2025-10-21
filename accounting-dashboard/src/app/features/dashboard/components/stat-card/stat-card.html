@@ -1,0 +1,8 @@
+<!-- src/app/features/dashboard/components/stat-card/stat-card.html -->
+<div class="stat-card">
+  <h3 class="stat-title">{{ card.title }}</h3>
+  <p class="stat-value">{{ card.value }}</p>
+  <p class="stat-change" [ngClass]="card.isPositive ? 'positive' : 'negative'">
+    {{ card.change }}
+  </p>
+</div>

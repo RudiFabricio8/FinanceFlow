@@ -1,0 +1,32 @@
+<!-- src/app/features/dashboard/components/transactions-table/transactions-table.html -->
+<div class="transactions-card">
+  <div class="transactions-header">
+    <h3 class="transactions-title">Recent Transactions</h3>
+    <button class="export-button" (click)="onExportClick()">
+      Export (Excel/PDF)
+    </button>
+  </div>
+
+  <div class="transactions-table-container">
+    <table class="transactions-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th class="text-right">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of transactions">
+          <td>{{ transaction.date }}</td>
+          <td>{{ transaction.description }}</td>
+          <td>{{ transaction.category }}</td>
+          <td class="text-right" [ngClass]="transaction.isPositive ? 'positive' : 'negative'">
+            {{ formatAmount(transaction.amount, transaction.isPositive) }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

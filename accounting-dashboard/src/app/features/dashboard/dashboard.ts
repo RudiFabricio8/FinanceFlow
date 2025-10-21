@@ -4,36 +4,44 @@ import { CommonModule } from '@angular/common';
 import { ExportService } from '../../core/services/export';
 import { StatCard } from '../../core/models/stat-card.model';
 import { Transaction } from '../../core/models/transaction.model';
+import { StatCardComponent } from './components/stat-card/stat-card';
+import { ChartPlaceholderComponent } from './components/chart-placeholder/chart-placeholder';
+import { TransactionsTableComponent } from './components/transactions-table/transactions-table';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
   standalone: true,
-  imports: [CommonModule]
+  imports: [
+    CommonModule,
+    StatCardComponent,
+    ChartPlaceholderComponent,
+    TransactionsTableComponent
+  ]
 })
 export class Dashboard implements OnInit {
   statCards: StatCard[] = [
     {
-      title: 'Total Ingresos',
+      title: 'Total Revenue',
       value: '$250,000',
       change: '+15%',
       isPositive: true
     },
     {
-      title: 'Gastos de nómina',
+      title: 'Payroll Expenses',
       value: '$75,000',
       change: '-5%',
       isPositive: false
     },
     {
-      title: 'Facturas pendientes',
+      title: 'Outstanding Invoices',
       value: '$12,500',
       change: '+10%',
       isPositive: true
     },
     {
-      title: 'Satisfacción',
+      title: 'Employee Satisfaction',
       value: '92%',
       change: '+2%',
       isPositive: true
@@ -43,29 +51,29 @@ export class Dashboard implements OnInit {
   transactions: Transaction[] = [
     {
       date: 'Jul 26, 2024',
-      description: 'Factura #12345 Pago',
-      category: 'Ganancia',
+      description: 'Invoice #12345 Payment',
+      category: 'Revenue',
       amount: 5000.00,
       isPositive: true
     },
     {
       date: 'Jul 25, 2024',
-      description: 'Material de oficina',
-      category: 'Gastos',
+      description: 'Office Supplies',
+      category: 'Expenses',
       amount: 150.25,
       isPositive: false
     },
     {
       date: 'Jul 24, 2024',
-      description: 'Pago - Julio',
-      category: 'Nóminas de sueldos',
+      description: 'Payroll - July',
+      category: 'Payroll',
       amount: 15000.00,
       isPositive: false
     },
     {
       date: 'Jul 23, 2024',
-      description: 'Suscripción de software',
-      category: 'Gastos',
+      description: 'Software Subscription',
+      category: 'Expenses',
       amount: 99.00,
       isPositive: false
     }
@@ -77,7 +85,7 @@ export class Dashboard implements OnInit {
     // Inicialización del componente
   }
 
-  exportData(): void {
+  handleExport(): void {
     console.log('Exportando datos...');
     
     const choice = confirm('¿Desea exportar a Excel? (Aceptar = Excel, Cancelar = PDF)');
@@ -87,10 +95,5 @@ export class Dashboard implements OnInit {
     } else {
       this.exportService.exportTransactionsToPDF(this.transactions);
     }
-  }
-
-  formatAmount(amount: number, isPositive: boolean): string {
-    const sign = isPositive ? '+' : '-';
-    return `${sign}$${amount.toFixed(2)}`;
   }
 }
