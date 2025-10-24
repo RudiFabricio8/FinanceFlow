@@ -1,1 +1,15 @@
-<p>notifications works!</p>
+<!-- src/app/features/notifications/notifications.html -->
+<div class="notifications-container">
+  <header class="notifications-header">
+    <h1 class="notifications-title">Flujo de Alertas Proactivas</h1>
+  </header>
+
+  <div class="alerts-list">
+    <app-alert-card
+      *ngFor="let alert of alerts"
+      [alert]="alert"
+      (dismiss)="dismissAlert($event)"
+      (action)="handleAction($event)">
+    </app-alert-card>
+  </div>
+</div>
