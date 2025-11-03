@@ -30,7 +30,8 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/app/features/auth/login/login.component.scss"
             ]
           },
           "configurations": {

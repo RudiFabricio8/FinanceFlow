@@ -1,10 +1,5 @@
-// src/styles.scss
+﻿// src/styles.scss
 
-// Importar fuentes
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
-
-// Variables de color
 :root {
   --color-primary: #565449;
   --color-background: #FFFBF4;
@@ -17,6 +12,17 @@
   --color-action: #FBBF24;
   --color-info: #3B82F6;
   --color-reminder: #9CA3AF;
+  --primary-color: #5c5c50;
+  --primary-text-color: #2f2f28;
+  --secondary-text-color: #555;
+  --card-bg-color: #ffffff;
+  --border-color: #e8e2d9;
+  --primary-text-color: #333;
+  --card-bg-color: #fff;
+  --secondary-text-color: #888;
+  --border-color: #ccc;
+  --button-bg-color: #007bff;
+  --font-family: 'Arial', sans-serif;
 }
 
 // Reset y estilos base

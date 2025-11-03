@@ -1,0 +1,50 @@
+﻿@use "../../../shared/styles/theme" as *;
+
+.register {
+  @include container(760px);
+  padding-block: clamp(24px, 6vw, 56px);
+  color: $ff-text;
+
+  h1 {
+    font-size: clamp(24px, 4.5vw, 36px);
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  p.lead {
+    color: $ff-text-muted;
+    margin-bottom: 24px;
+  }
+
+  form {
+    display: grid;
+    gap: 14px;
+    background: #fff;
+    border: 1px solid $ff-border;
+    border-radius: 14px;
+    padding: clamp(16px, 3vw, 24px);
+  }
+
+  label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: inline-block;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid $ff-border;
+    border-radius: 10px;
+    background: $ff-bg;
+  }
+
+  .actions {
+    margin-top: 8px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .btn-primary { @extend .btn-primary; }
+  .btn-ghost { @extend .btn-ghost; }
+}

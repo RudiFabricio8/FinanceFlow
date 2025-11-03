@@ -1,0 +1,31 @@
+  <section class="login">
+    <h1>Iniciar sesión</h1>
+    <p class="lead">Ingresa tus credenciales para acceder al panel.</p>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div>
+        <label>Correo electrónico</label>
+        <input type="email" formControlName="email" placeholder="tu@ejemplo.com" />
+        <small *ngIf="f['email'].touched && f['email'].invalid">
+          Ingresa un correo válido.
+        </small>
+      </div>
+
+      <div>
+        <label>Contraseña</label>
+        <input type="password" formControlName="password" />
+        <small *ngIf="f['password'].touched && f['password'].invalid">
+          Mínimo 6 caracteres.
+        </small>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn-primary" [disabled]="submitting">
+          Iniciar sesión
+        </button>
+        <a routerLink="/register" class="btn-ghost">Crear cuenta</a>
+      </div>
+
+      <p *ngIf="errorMsg" style="color:#b00020; margin-top:8px">{{ errorMsg }}</p>
+    </form>
+  </section>

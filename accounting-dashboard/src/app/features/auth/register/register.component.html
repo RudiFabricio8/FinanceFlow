@@ -1,0 +1,37 @@
+﻿<section class="register">
+  <h1>Crea tu Cuenta</h1>
+  <p class="lead">Únete a nosotros para gestionar tus finanzas eficientemente.</p>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+      <label>Nombre de la Empresa</label>
+      <input type="text" formControlName="company" placeholder="Tu Empresa S.A." />
+      <small *ngIf="f['company'].touched && f['company'].invalid">Ingresa un nombre válido (mín. 2 caracteres).</small>
+    </div>
+
+    <div>
+      <label>Correo Electrónico</label>
+      <input type="email" formControlName="email" placeholder="tu@ejemplo.com" />
+      <small *ngIf="f['email'].touched && f['email'].invalid">Correo inválido.</small>
+    </div>
+
+    <div>
+      <label>Contraseña</label>
+      <input type="password" formControlName="password" />
+      <small *ngIf="f['password'].touched && f['password'].invalid">Mínimo 6 caracteres.</small>
+    </div>
+
+    <div>
+      <label>Confirmar Contraseña</label>
+      <input type="password" formControlName="confirm" />
+      <small *ngIf="form.touched && form.errors?.['mismatch']">Las contraseñas no coinciden.</small>
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="btn-primary" [disabled]="submitting">Registrarse</button>
+      <a routerLink="/login" class="btn-ghost">¿Ya tienes cuenta? Inicia Sesión</a>
+    </div>
+
+    <p *ngIf="errorMsg" style="color:#b00020;margin-top:8px">{{ errorMsg }}</p>
+  </form>
+</section>
